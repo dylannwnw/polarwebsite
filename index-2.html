@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Polar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EFF0F2;--paper:#fff;--ink:#1c2127;--mute:#5a636d;--line:#d8dbdf;--blue:#003865;--link:#1a5a96;--orange:#E87722;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+h1,h2,h3,.logo{font-family:inherit;margin:0;line-height:1.25}
+h1{font-size:1.5rem;font-weight:700}
+h2{font-size:1.1rem;font-weight:700}
+h3{font-size:1rem;font-weight:600}
+label{font-weight:600;font-size:.9rem}
+button{font:inherit;color:inherit}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--blue);color:#fff;border-bottom:3px solid var(--orange);display:flex;justify-content:space-between;align-items:center;padding:8px 20px;gap:12px;flex-wrap:wrap}
+.logo{background:none;border:0;cursor:pointer;font-size:1.25rem;font-weight:700;color:#fff;padding:0;display:flex;align-items:center;gap:6px}
+.who{display:flex;align-items:center;gap:12px;font-size:.9rem}
+.chip{border:1px solid rgba(255,255,255,.55);padding:0 8px;border-radius:3px;font-size:.8rem}
+.bar .link{color:#fff}
+.bar :focus-visible{outline-color:#fff}
+.wrap{max-width:960px;margin:0 auto;padding:24px 20px 60px}
+.hero{margin-bottom:18px}.hero p{max-width:60ch;margin:.25rem 0 .9rem}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.btn{background:var(--blue);color:#fff;border:1px solid var(--blue);padding:7px 14px;border-radius:4px;font-weight:600;font-size:.95rem;cursor:pointer}
+.btn:hover{background:#002a4d}
+.btn.ghost{background:#fff;color:var(--blue);border-color:#9aa6b2}
+.btn.ghost:hover{background:#f0f3f6}
+.link{background:none;border:0;color:var(--link);cursor:pointer;text-decoration:underline;padding:0;font-size:.9rem}
+:focus-visible{outline:3px solid #1a73c8;outline-offset:2px}
+.grid{columns:230px;column-gap:14px}
+.card{display:block;width:100%;text-align:left;background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:0 0 14px;padding:0;cursor:pointer;break-inside:avoid}
+.card:hover{border-color:#a9b4bf}
+.ph{display:block;overflow:hidden;position:relative}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph svg,.banner svg{display:block;width:100%;height:100%}
+.card .t{display:block;padding:10px 12px 12px}
+.card .ti{display:block;font-weight:600;line-height:1.3}
+.card .cnt{display:block;margin-top:2px}
+.card:hover .ti{text-decoration:underline}
+.cnt{color:var(--mute);font-size:.85rem}
+.mute{color:var(--mute);margin:.35rem 0}
+.empty{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:20px 16px;color:var(--mute);margin:0}
+.demo{margin-top:32px;padding-top:12px;border-top:1px solid var(--line);color:var(--mute);font-size:.8rem;max-width:72ch}
+.back{display:inline-block;margin-bottom:12px}
+.th{margin:4px 0}
+.debate{background:var(--blue);color:#fff;border-radius:8px;padding:18px 22px;margin-bottom:22px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.debate .q{font-weight:600;font-size:1.05rem;margin:.3rem 0 .1rem}
+.debate .sub{margin:0;color:#c9d6e3;font-size:.88rem}
+.debate .btn{background:#fff;color:var(--blue);border-color:#fff}
+.debate .btn:hover{background:#e6ebf0}
+.debate .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+.debate .btn.ghost:hover{background:rgba(255,255,255,.12)}
+.debate :focus-visible{outline-color:#fff}
+.banner{max-width:420px;aspect-ratio:4/3;margin:0 0 10px;position:relative;border-radius:8px;overflow:hidden}
+.banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.c{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:10px 14px;margin:8px 0}
+.c p{margin:.25rem 0 .5rem}.c small{color:#6b4e00}
+.c.held{background:#fff6e0;border-color:#dcc07a}
+.c.rep{background:#f3f4f6;color:var(--mute)}
+.rp{margin-left:14px;padding-left:12px;border-left:2px solid var(--line)}
+.acts{display:flex;gap:14px}
+.rt{background:#e8edf2;border-radius:3px;padding:6px 10px;margin:10px 0 0}
+.pill{display:inline-block;background:var(--blue);color:#fff;border-radius:3px;padding:0 8px;font-size:.8rem;font-weight:600}
+.duel{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.side{background:var(--paper);border:2px solid var(--line);border-radius:4px;padding:10px 14px}
+.side.on{border-color:var(--blue);background:#f3f6f9}
+.b{max-width:88%;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:9px 14px;margin:10px 0}
+.b.r{margin-left:auto;background:#e8edf2;border-color:#c8d2dc}
+.b small{display:block;color:var(--mute)}
+.tm{font-variant-numeric:tabular-nums;font-weight:700;color:#a64b00}
+.rowv{display:grid;grid-template-columns:72px 1fr 84px;gap:10px;align-items:center;margin:8px 0}
+.track{background:#e3e6ea;border-radius:2px;height:10px;overflow:hidden}
+.fill{background:var(--blue);height:100%}
+.cand{display:flex;justify-content:space-between;align-items:center;gap:12px}
+textarea,input{width:100%;border:1px solid #98a2ad;border-radius:4px;padding:9px 10px;font:inherit;background:#fff;margin:.35rem 0}
+.msg{color:#b3261e;min-height:1.4em;font-size:.9rem}
+.sg{display:block;width:100%;text-align:left;background:#fff;border:1px solid var(--line);border-radius:4px;padding:8px 12px;margin:6px 0;cursor:pointer}
+.wk{margin:24px 0 10px}
+.box{max-width:420px;margin:8vh auto 0;background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:26px}
+.box .logo{font-size:1.8rem;margin-bottom:4px;color:var(--blue)}
+.box .logo svg{width:30px;height:30px}
+.sr{position:absolute;left:-9999px}
+.c p,.c b,.b,h1,h2,h3,.cand b,.sg,.card .ti{overflow-wrap:anywhere}
+#toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);background:var(--ink);color:#fff;padding:9px 16px;border-radius:4px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;font-size:.9rem;z-index:9}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){#toast{transition:none}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<script>
+const $=s=>document.querySelector(s),app=$('#app');
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const hash=s=>{let h=7;for(const c of s)h=(h*31+c.charCodeAt(0))>>>0;return h};
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const gen=()=>pick(['Icy','Quiet','Blue','Snowy','Frosty','Calm'])+pick(['Fox','Moose','Heron','Owl','Lynx','Wren'])+(10+Math.floor(Math.random()*89));
+
+
+let id=1;
+const T=(title,cs,extra,week)=>{const t={id:id++,title,extra:extra||0,week,comments:[]};cs.forEach(([u,x,p,st])=>t.comments.push({id:id++,user:u,text:x,status:st||'ok',parent:p==null?null:t.comments[p].id}));return t};
+const thread=(t,p,d,ro)=>t.comments.filter(c=>(c.parent||null)===p).map(c=>{const k=thread(t,c.id,d+1,ro);let h=cm(c,ro);if(!h&&k)h=`<div class="c rep"><p>${c.status==='removed'?'Removed by a moderator.':'Hidden while a moderator reviews it.'}</p></div>`;return h+(k?(d<2?`<div class="rp">${k}</div>`:k):'')}).join('');
+const wk=w=>{const f=d=>d.toLocaleDateString('en-US',{month:'short',day:'numeric'});return f(new Date(2026,8,28+(w-4)*7))+' to '+f(new Date(2026,8,34+(w-4)*7))};
+const S={user:null,view:'board',cur:null,week:4,hnd:gen(),
+ topics:[
+  T('Should voting be mandatory?',[['QuietMoose','Australia does it and turnout is above 90%. Is that actually better civic engagement?'],['BlueHeron','Forced participation is not the same as informed participation.'],['QuietMoose','Fair, but voting habits form early. Maybe mandatory voting plus civic education?',1],['SnowyOwl','A small fine works in practice. The point is showing up.',0]],14),
+  T('Is the Electoral College still worth keeping?',[['SnowyOwl','It makes candidates visit smaller states, which is the whole point.']],23),
+  T('Should Supreme Court justices have term limits?',[['CalmWren41','Eighteen-year terms would make every president get the same number of picks.']],9),
+  T('How much should campuses regulate political speech?',[['FrostyLynx22','Open debate is the reason we are here.'],['IcyFox17','Openness still needs rules against harassment.'],['FrostyLynx22','Agreed. Where do you draw the line, though?',1],['SnowyOwl','Anyone who disagrees with me here is brainwashed.',null,'rep'],['CalmWren41','Shut up. People like you never listen.',2,'held']],31),
+  T('Is social media good or bad for democracy?',[['BlueHeron','It lowers the cost of organizing, but it also rewards outrage.']],18),
+  T('Should the voting age be lowered to 16?',[],6)],
+ history:[
+  T('Should college be free?',[['SnowyOwl','Free for whom, and paid for by whom?'],['CalmWren41','Germany does it for public universities. Worth studying.',0]],27,3),
+  T('Do primaries push candidates to extremes?',[['CalmWren41','Ranked-choice voting might fix part of this.']],12,2),
+  T('Should the minimum wage be raised?',[],17,2),
+  T('Is the filibuster helping or hurting Congress?',[],20,3),
+  T('Should Congress be able to ban TikTok?',[],22,1),
+  T('Should the U.S. do more about climate change?',[],29,1)]};
+const TURN=20,DB={f:'BlueHeron',a:'SnowyOwl'},who=s=>s?DB.a:DB.f;
+const TURNS=[
+['Opening argument',0,'Voting is a civic duty, like jury service. Australia fines non-voters a small amount and turnout tops 90 percent. Higher turnout makes results more representative and pushes parties to court everyone, not just their base.'],
+['Counter-argument',1,'Compelling attendance is not the same as encouraging engagement. Forced voters often cast random or blank ballots, and punishing citizens for staying home sits uneasily with a right that includes the right to abstain.'],
+['Rebuttal',0,'Mandatory means showing up, not choosing a candidate. Blank ballots are allowed. And habits form early: people who vote at eighteen keep voting. A small fine is a fair price for a more representative electorate.'],
+['Rebuttal',1,'A more representative electorate is not a better informed one. Civic education would do more than fines. Remove the barriers, like long lines and strict deadlines, and let willing voters decide.'],
+['Closing statement',0,'The question is whether democracy belongs to everyone or only to those who show up. A small obligation, an easy blank option, and a government that must answer to all of us is a good trade.'],
+['Closing statement',1,'Rights that cannot be declined stop being rights. Make voting easier, teach civics, and trust people to show up when they believe it matters. Persuade citizens. Do not penalize them.']];
+let D;const resetD=()=>{if(D&&D.timer)clearInterval(D.timer);D={phase:'pre',turn:-1,t0:0,timer:null,pre:null,post:null}};resetD();
+const fmt=s=>'0:'+String(Math.max(0,Math.ceil(s))).padStart(2,'0');
+function dtick(){const w=TURNS[D.turn][2].split(' '),f=Math.min(1,(Date.now()-D.t0)/(TURN*1000)),c=$('#cur'),m=$('#dt');
+ if(c)c.textContent=w.slice(0,Math.ceil(f*w.length)).join(' ');if(m)m.textContent=fmt(TURN*(1-f));
+ if(f>=1){D.turn++;D.t0=Date.now();if(D.turn>=TURNS.length){clearInterval(D.timer);D.timer=null;D.phase='post'}render();const l=$('#live');if(l)l.scrollIntoView({block:'nearest'})}}
+const vopt=[['f','For'],['a','Against'],['u','Not sure']];
+const vbtns=k=>`<div class="row">${vopt.map(([v,l])=>`<button class="btn ${D[k]===v?'':'ghost'}" data-a="dvote" data-k="${k}" data-v="${v}">${l}</button>`).join('')}</div>`;
+const bub=(x,on)=>`<div class="b ${x[1]?'r':''}"${on?' id="live"':''}><small>${esc(who(x[1]))}, ${x[0].toLowerCase()}</small>${on?'<span id="cur"></span> <span class="tm">...</span>':esc(x[2])}</div>`;
+function result(){const b={f:34,a:36,u:15},a={f:41,a:38,u:8};b[D.pre]++;a[D.post]++;
+ const gf=a.f-b.f,ga=a.a-b.a,n=x=>x.f+x.a+x.u,sg=x=>(x>=0?'+':'')+x,
+ row=([v,l])=>`<div class="rowv"><b>${l}</b><div class="track"><div class="fill" style="width:${100*a[v]/n(a)}%"></div></div><span>${b[v]} to ${a[v]}</span></div>`;
+ return `<div class="c"><h3>Results</h3>${vopt.map(row).join('')}<p><b>${gf===ga?'Dead heat on moved minds.':(gf>ga?DB.f:DB.a)+' moved more minds.'}</b> <span class="mute">For ${sg(gf)}, Against ${sg(ga)} from before to after.</span></p><button class="btn ghost" data-a="dagain">Run it again</button></div>`}
+function debate(){const live=D.phase==='live',t=TURNS[D.turn]||[];
+ return `<button class="link back" data-a="board">Back</button><h1>${esc(lead().res)}</h1><p class='mute'>Debate room, week ${S.week}. Topic chosen by vote with ${lead().pts} points. Text debate in three rounds, with timed turns.</p>
+<div class="duel"><div class="side ${live&&t[1]===0?'on':''}"><span class="pill">For</span><br><b>${DB.f}</b></div><div class="side ${live&&t[1]===1?'on':''}"><span class="pill">Against</span><br><b>${DB.a}</b></div></div>
+${D.phase==='pre'?`<div class="c"><h3>Before it starts, where do you stand?</h3><p class="mute">Votes stay hidden until the debate ends.</p>${vbtns('pre')}${D.pre?'<p><button class="btn" data-a="dstart">Join the live room</button></p>':''}</div>`:''}
+<div>${TURNS.map((x,i)=>i<D.turn?bub(x):i===D.turn&&live?bub(x,1):'').join('')}</div>
+${live?`<p class="mute" role="status">${t[0]}: ${esc(who(t[1]))} has the floor. <span class="tm" id="dt">${fmt(TURN)}</span> left. Audience chat is closed during the debate.</p>`:''}
+${D.phase==='post'?`<div class="c"><h3>The debate is over. Where do you stand now?</h3>${vbtns('post')}</div>`:''}
+${D.phase==='done'?result():''}
+<p class="demo">Demo speed: turns last ${TURN} seconds and the debaters are scripted. In the live version each turn is about three minutes, and the debaters are two real students drawn from the sign-ups.</p>`}
+const ringCard=()=>`<section class="debate"><div><h2>Debate room</h2><p class="q">${esc(lead().res)}</p><p class="sub">Chosen by vote with ${lead().pts} points. ${DB.f} (for) vs ${DB.a} (against).</p></div><div class="row"><button class="btn" data-a="debate">Enter the room</button><button class="btn ghost" data-a="vote">Vote on the topic</button><button class="btn ghost" data-a="signup">Sign up to debate</button></div></section>`;
+const signup=()=>`<button class="link back" data-a="board">Back</button><h1>Sign up to debate</h1><p class='mute'>Topic: <b>${esc(lead().res)}</b> Once voting closes, one volunteer for each side is drawn at random. Volunteers need a verified account in good standing.</p>${S.signed?`<div class="c"><b>You're in the draw.</b><p>Topic: ${esc(S.signed.res)}<br>Your side: ${S.signed.side}. The draw happens when voting closes.</p></div>`:`<form data-f="signup"><p><label><input type="radio" name="sd" value="For" checked style="width:auto"> I will argue for</label><br><label><input type="radio" name="sd" value="Against" style="width:auto"> I will argue against</label></p><div id="msg" class="msg" role="status"></div><button class="btn">Join the draw</button></form>`}`;
+S.cands=[['c1','Voting should be mandatory in U.S. elections.',21],['c2','The Electoral College should be abolished.',18],['c3','Supreme Court justices should have term limits.',15],['c4','Social media does more harm than good to democracy.',12]].map(([k,res,pts])=>({id:k,res,pts}));S.myvote=null;
+const lead=()=>S.cands.slice().sort((a,b)=>b.pts-a.pts)[0];
+const KEY='polar-demo-v1';
+function save(){try{localStorage.setItem(KEY,JSON.stringify({v:1,id,user:S.user,hnd:S.hnd,week:S.week,topics:S.topics,history:S.history,cands:S.cands,myvote:S.myvote,signed:S.signed||null}))}catch(e){}}
+(function load(){try{const d=JSON.parse(localStorage.getItem(KEY)||'null');const okT=t=>t&&typeof t.title==='string'&&Array.isArray(t.comments)&&t.comments.every(c=>c&&typeof c.text==='string'&&typeof c.user==='string');
+ if(!d||d.v!==1||!Array.isArray(d.topics)||!Array.isArray(d.history)||!Array.isArray(d.cands)||!d.cands.length||!d.cands.every(c=>c&&typeof c.res==='string')||!d.topics.concat(d.history).every(okT))return;
+ id=Math.max(id,+d.id||0);S.user=d.user&&d.user.handle?{handle:String(d.user.handle)}:null;if(d.hnd)S.hnd=String(d.hnd);S.week=+d.week||S.week;
+ S.topics=d.topics;S.history=d.history;S.cands=d.cands;S.myvote=d.myvote||null;S.signed=d.signed||null}catch(e){}})();
+const votePage=()=>{const L=S.cands.slice().sort((a,b)=>b.pts-a.pts);return `<button class='link back' data-a='board'>Back</button><h1>Choose this week's debate topic</h1><p class='mute'>One vote each, and you can change it. The topic with the most points gets debated. Voting closes Tuesday.</p>${L.map((c,i)=>`<div class='c cand'><div><b>${esc(c.res)}</b><br><span class='cnt'>${c.pts} points${i===0?' (leading)':''}</span></div><button class='btn ${S.myvote===c.id?'':'ghost'}' data-a='tvote' data-k='${c.id}'>${S.myvote===c.id?'Your vote':'Vote'}</button></div>`).join('')}<h2 class='wk'>Propose a topic</h2><form data-f='propose'><label for='pr' class='sr'>Proposed resolution</label><input id='pr' maxlength='120' placeholder='Example: Congress should set term limits.' autocomplete='off' required><div id='msg' class='msg' role='status'></div><button class='btn ghost'>Add to the ballot</button></form><p class='demo'>Demo note: the scripted debate is written for the leading topic, so the seeded standings keep it in front.</p>`};
+const find=i=>S.topics.concat(S.history).find(t=>t.id==i);
+const count=t=>t.comments.filter(c=>c.status==='ok').length+t.extra;
+
+const bad=/\b(damn|hell|crap|shit|fuck\w*|bitch|asshole|bastard)\b/i;
+const tox=/\b(you|u|you're|youre)\b[^.!?]{0,25}\b(idiots?|stupid|morons?|dumb|trash|garbage|scum|brainwashed)\b|shut up|people like you|i hate (you|them)/i;
+const mod=t=>bad.test(t)?'block':tox.test(t)?'hold':'ok';
+const stop=new Set('should the and for with that this what how why does are not from have more than into about'.split(' '));
+const words=s=>(s.toLowerCase().match(/[a-z]{3,}/g)||[]).filter(w=>!stop.has(w));
+function similar(q){const w=new Set(words(q));if(!w.size)return[];return S.topics.map(t=>[t,words(t.title).filter(x=>w.has(x)).length]).filter(x=>x[1]).sort((a,b)=>b[1]-a[1]).slice(0,3).map(x=>x[0])}
+const sugg=q=>{const s=similar(q);return s.length?`<p class="mute">Already on the board:</p>${s.map(t=>`<button type="button" class="sg" data-a="open" data-id="${t.id}">${esc(t.title)} <span class="cnt">${count(t)} comments</span></button>`).join('')}<p class="mute">Duplicates are fine. Join one, or post yours anyway.</p>`:''};
+
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.k);toast.k=setTimeout(()=>t.classList.remove('on'),2600)}
+
+const snow='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7"/></svg>';
+/* Each topic gets an illustrated scene (below). To use your own photo or image instead, put a JPG in a covers/ folder
+   next to this file, named from the topic title (see cover-prompts.md). It shows on top of the illustration. */
+const slug=s=>s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,50).replace(/-$/,'');
+const AR=['4/5','1/1','5/6','4/3','3/4'],TL=['#d5dde5','#dde3d9','#e6dccd','#d9d6e3','#e3d5d5'];
+const cover=t=>'covers/'+slug(t)+'.jpg';
+const img=(u,fb)=>`<img src="${u}" alt="" loading="lazy" onerror="${fb}">`;
+const SK=['#f1c9a5','#d9a47c','#a9734c','#7a4d33'],SH=['#003865','#E87722','#5b7a92','#2f7f6f','#8a3b3b','#6b7f93'],HR=['#2b211c','#5a3b27','#c9a24a','#1a1a1a'],SKY=['#cfe0ee','#dbe6d8','#ecdcc6','#d9d4e6','#e4d3d3'];
+const fig=(x,y,s,i,ra,la,col,ex)=>{const k=SK[i%4],c=col||SH[(i*3+1)%6],r=HR[(i+2)%4],arm=(a,left)=>`<rect x="${left?-14:8}" y="-50" width="6" height="26" rx="3" fill="${c}" transform="rotate(${left?(a||0):-(a||0)} ${left?-11:11} -48)"/>`;
+ return `<g transform="translate(${x} ${y}) scale(${s})"><rect x="-8" y="-22" width="6" height="22" rx="3" fill="#26323f"/><rect x="2" y="-22" width="6" height="22" rx="3" fill="#26323f"/><rect x="-12" y="-56" width="24" height="38" rx="10" fill="${c}"/>${arm(la,1)}${arm(ra,0)}<circle cy="-66" r="10" fill="${k}"/><path d="M-10 -67A10 10 0 0 1 10 -67Q0 -74 -10 -67z" fill="${r}"/>${ex||''}</g>`};
+const GR='<rect y="252" width="300" height="48" fill="#003865" opacity=".14"/>';
+const win=(n,x0,dx,y,w,h)=>Array.from({length:n},(_,i)=>`<rect x="${x0+i*dx}" y="${y}" width="${w}" height="${h}" fill="#dfe9f2"/>`).join('');
+const SC=[
+['electoral',h=>{const rows=[[1,10],[0,11],[0,11],[1,10],[2,9],[4,8],[8,9]];let s='';rows.forEach(([a,b],r)=>{for(let c=a;c<=b;c++){const v=(c*7+r*13+h)%5;s+=`<rect x="${56+c*15}" y="${78+r*15}" width="13" height="13" rx="2" fill="${v<2?'#003865':v<4?'#E87722':'#c3cfda'}"/>`}});return s+fig(252,252,1.1,h,0,105)}],
+['voting age|teen|\\b16\\b',h=>`<rect x="46" y="118" width="150" height="134" fill="#b98f7a"/><rect x="46" y="108" width="150" height="12" fill="#8f6b58"/>${win(3,62,44,134,28,30)}<rect x="104" y="190" width="34" height="62" fill="#003865"/><rect x="228" y="98" width="3" height="154" fill="#8793a0"/><path d="M231 100h30v18h-30z" fill="#E87722"/>`+fig(78,252,1,h)+fig(150,252,1.05,h+1,120,0,0,'<rect x="27" y="-82" width="14" height="20" fill="#fff" stroke="#8793a0"/><path d="M30 -72l3 3 5 -6" stroke="#003865" stroke-width="2" fill="none"/>')+fig(214,252,1,h+2)],
+['social|media|tiktok|online|internet',h=>`<rect x="105" y="80" width="90" height="156" rx="14" fill="#1c2733"/><rect x="112" y="92" width="76" height="132" rx="6" fill="#fff"/><circle cx="126" cy="106" r="8" fill="#E87722"/><rect x="140" y="101" width="40" height="5" rx="2" fill="#c8d3de"/><rect x="140" y="110" width="26" height="4" rx="2" fill="#dde4ea"/><rect x="118" y="124" width="64" height="48" rx="3" fill="#cfe0ee"/><path d="M150 206 l-12 -12 a7 7 0 0 1 12 -9 a7 7 0 0 1 12 9 z" fill="#E87722"/><rect x="38" y="112" width="62" height="38" rx="8" fill="#fff"/><path d="M56 150l-8 12 22 -12z" fill="#fff"/><path d="M48 124h38M48 134h24" stroke="#9aa6b2" stroke-width="3"/><rect x="200" y="132" width="60" height="36" rx="8" fill="#003865"/><path d="M240 168l10 12 -22 -12z" fill="#003865"/><path d="M210 144h30M210 154h18" stroke="#fff" stroke-width="3"/>`+fig(60,252,1,h,0,0,0,'<rect x="10" y="-58" width="10" height="16" rx="2" fill="#1c2733"/>')+fig(240,252,1,h+2,0,0,0,'<rect x="-20" y="-58" width="10" height="16" rx="2" fill="#1c2733"/>')],
+['filibuster|congress|senate|legislat|\\bbills?\\b|\\blaws?\\b',h=>`<rect x="62" y="200" width="176" height="52" fill="#f4f6f8" stroke="#c9d3dc"/>${Array.from({length:7},(_,i)=>`<rect x="${72+i*24}" y="208" width="8" height="40" fill="#e3e8ed"/>`).join('')}<rect x="114" y="152" width="72" height="48" fill="#e9eef2" stroke="#c9d3dc"/><path d="M110 152 a40 40 0 0 1 80 0 z" fill="#f8fafb" stroke="#c9d3dc"/><rect x="146" y="96" width="8" height="16" fill="#e3e8ed"/><circle cx="150" cy="90" r="5" fill="#c9d3dc"/><circle cx="246" cy="96" r="17" fill="#fff" stroke="#003865" stroke-width="3"/><path d="M246 96v-10M246 96l8 4" stroke="#003865" stroke-width="3" stroke-linecap="round"/>`+fig(70,252,1,h,0,0,'#2b3a4a')+fig(232,252,1,h+2,130,0)],
+['court|justice|judicial|constitution',h=>`<path d="M52 118 L150 84 L248 118 z" fill="#f4f6f8" stroke="#c9d3dc"/><rect x="60" y="118" width="180" height="10" fill="#e3e8ed"/>${Array.from({length:5},(_,i)=>`<rect x="${70+i*38}" y="128" width="16" height="96" fill="#fff" stroke="#c9d3dc"/>`).join('')}<rect x="52" y="224" width="196" height="10" fill="#dfe5ea"/><rect x="44" y="234" width="212" height="10" fill="#d3dbe2"/><rect x="36" y="244" width="228" height="8" fill="#c8d2db"/>`+fig(150,252,1.15,h,0,0,'#1b1f24','<path d="M-14 -24h28l6 24h-40z" fill="#1b1f24"/><rect x="-5" y="-56" width="10" height="9" fill="#fff"/>')],
+['speech|protest|campus|censor',h=>`<rect x="34" y="130" width="130" height="122" fill="#b98f7a"/><rect x="34" y="122" width="130" height="10" fill="#8f6b58"/>${win(3,48,38,146,24,28)}<rect x="190" y="92" width="38" height="160" fill="#a77f6b"/><path d="M186 92 L209 68 L232 92 z" fill="#003865"/><circle cx="209" cy="116" r="10" fill="#fff"/><path d="M209 116v-6M209 116l5 3" stroke="#003865" stroke-width="2"/>`+[0,1,2,3].map(i=>{const sg=i%2===0;return fig(66+i*56,252,1.05,h+i,150,sg?0:150,0,sg?`<rect x="21.5" y="-114" width="3" height="44" fill="#8a6a4a"/><rect x="5" y="-140" width="38" height="26" fill="#fff" stroke="#8793a0"/><path d="M11 -130h26M11 -122h16" stroke="${i%4?'#003865':'#E87722'}" stroke-width="3"/>`:'')}).join('')],
+['vot|ballot|turnout|election',h=>`<rect x="176" y="118" width="80" height="134" fill="#e6ebf0"/><rect x="176" y="118" width="80" height="14" fill="#003865"/><rect x="184" y="140" width="64" height="112" fill="#5b7a92"/><path d="M200 140v112M216 140v112M232 140v112" stroke="#003865" stroke-width="3" opacity=".5"/><rect x="48" y="196" width="66" height="56" rx="3" fill="#003865"/><rect x="64" y="196" width="34" height="6" fill="#0d1f2d"/><rect x="58" y="216" width="46" height="14" rx="2" fill="#E87722"/><rect x="73" y="166" width="20" height="32" fill="#fff" stroke="#8793a0" transform="rotate(8 83 182)"/><path d="M77 182l4 4 8 -9" stroke="#003865" stroke-width="2.5" fill="none"/>`+fig(144,252,1.05,h,0,70)],
+['college|tuition|school|education|student|loan',h=>`<rect x="58" y="136" width="184" height="116" fill="#b98f7a"/><rect x="132" y="92" width="36" height="46" fill="#a77f6b"/><path d="M128 92 L150 68 L172 92 z" fill="#003865"/><circle cx="150" cy="112" r="9" fill="#fff"/><path d="M150 112v-5M150 112l4 3" stroke="#003865" stroke-width="2"/>${win(4,70,42,154,22,26)}<path d="M138 252v-34a12 12 0 0 1 24 0v34z" fill="#003865"/>`+[96,204].map((x,i)=>fig(x,252,1.1,h+i,150,150,'#003865','<path d="M-15 -78l15 -7 15 7 -15 7z" fill="#1b1f24"/><path d="M-8 -74v5h16v-5" fill="#1b1f24"/><path d="M13 -78v8" stroke="#E87722" stroke-width="2"/>')).join('')],
+['primar|candidate|campaign|partisan|polariz',h=>`<rect x="30" y="86" width="82" height="126" fill="#003865"/><rect x="188" y="86" width="82" height="126" fill="#E87722"/><circle cx="71" cy="130" r="14" fill="#fff" opacity=".85"/><circle cx="229" cy="130" r="14" fill="#fff" opacity=".85"/><path d="M150 86v126" stroke="#fff" stroke-width="3" stroke-dasharray="7 7"/><rect x="18" y="212" width="264" height="40" fill="#7f8c99"/>`+fig(68,212,.95,h)+fig(232,212,.95,h+1,100,0)+'<rect x="50" y="176" width="36" height="36" fill="#2b3a4a"/><rect x="214" y="176" width="36" height="36" fill="#2b3a4a"/><path d="M68 176v-8M232 176v-8" stroke="#2b3a4a" stroke-width="3"/>'+Array.from({length:7},(_,i)=>`<ellipse cx="${24+i*42}" cy="300" rx="20" ry="24" fill="#1c2733" opacity=".85"/><circle cx="${24+i*42}" cy="268" r="11" fill="#1c2733" opacity=".85"/>`).join('')],
+['econom|\\btax|wage|inflation|\\bjobs?\\b|debt|budget',h=>`${Array.from({length:4},(_,i)=>`<rect x="${172+i*24}" y="${196-i*28}" width="18" height="${56+i*28}" fill="#c3cfda"/>`).join('')}<path d="M172 150l28 -18 24 10 32 -40" stroke="#E87722" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M246 98l12 2 -4 12z" fill="#E87722"/>`+fig(96,252,1.1,h,0,0,'#8a3b3b')+`<rect x="30" y="198" width="150" height="54" fill="#5b7a92"/><rect x="24" y="190" width="162" height="10" fill="#3c566b"/><rect x="150" y="168" width="18" height="22" rx="3" fill="#fff" stroke="#9aa6b2"/><rect x="150" y="174" width="18" height="6" fill="#E87722"/>${Array.from({length:5},(_,i)=>`<ellipse cx="236" cy="${246-i*8}" rx="19" ry="6" fill="#E87722" stroke="#b85a14"/>`).join('')}`],
+['climate|energy|environment|green',h=>`<circle cx="232" cy="96" r="22" fill="#f6c36a"/><path d="M0 214 q60 -46 130 -8 t170 -26 v106 H0 z" fill="#a9c4a5"/><path d="M0 238 q80 -30 160 -4 t140 -14 v60 H0 z" fill="#8fb08c"/>${[[84,150,1],[160,132,0],[236,160,2]].map(([x,y,k])=>`<rect x="${x-2}" y="${y}" width="4" height="${252-y}" fill="#f4f6f8"/><g transform="translate(${x} ${y}) rotate(${k*40+h%90})" fill="#fff" stroke="#c9d3dc"><path d="M0 0 L-3 -30 L3 -30 z"/><path d="M0 0 L-3 -30 L3 -30 z" transform="rotate(120)"/><path d="M0 0 L-3 -30 L3 -30 z" transform="rotate(240)"/><circle r="4" fill="#E87722" stroke="none"/></g>`).join('')}`+fig(122,252,1.1,h,0,0,0,'<path d="M20 -8v-24" stroke="#6b4a2f" stroke-width="3"/><circle cx="20" cy="-38" r="11" fill="#4f8a5b"/>')],
+['health|medicare|hospital|insurance',h=>`<rect x="66" y="124" width="150" height="128" fill="#f4f6f8" stroke="#c9d3dc"/><rect x="118" y="78" width="46" height="46" rx="4" fill="#fff" stroke="#c9d3dc"/><rect x="136" y="86" width="10" height="30" fill="#E87722"/><rect x="126" y="96" width="30" height="10" fill="#E87722"/>${[0,1,2].map(i=>win(1,82+i*44,0,142,26,26)+win(1,82+i*44,0,182,26,26)).join('')}<rect x="124" y="206" width="34" height="46" fill="#003865"/>`+fig(244,252,1.1,h,0,0,'#f4f4f4')],
+[0,h=>`<rect x="40" y="104" width="100" height="56" rx="10" fill="#fff"/><path d="M62 160l-10 16 26 -16z" fill="#fff"/><path d="M56 122h58M56 134h38" stroke="#9aa6b2" stroke-width="4" stroke-linecap="round"/><rect x="160" y="130" width="100" height="56" rx="10" fill="#003865"/><path d="M238 186l10 16 -26 -16z" fill="#003865"/><path d="M176 148h58M176 160h38" stroke="#fff" stroke-width="4" stroke-linecap="round"/>`+fig(78,252,1,h)+fig(222,252,1,h+1)]];
+function art(t){const h=hash(t),m=SC.find(x=>!x[0]||new RegExp(x[0],'i').test(t));return `<svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><rect width="300" height="300" fill="${SKY[(h>>>4)%5]}"/><circle cx="${70+h%160}" cy="${34+h%28}" r="24" fill="#fff" opacity=".5"/>${GR}${m[1](h%97)}</svg>`}
+const head=()=>`<header class="bar"><button class="logo" data-a="board" aria-label="Polar home">${snow} Polar</button><div class="who"><span class="chip">Bucknell</span><span>${esc(S.user.handle)}</span><button class="link" data-a="signout">Sign out</button></div></header>`;
+const card=t=>{const h=hash(t.title);return `<button class="card" data-a="open" data-id="${t.id}"><span class="ph" style="aspect-ratio:${AR[(h>>>3)%AR.length]}">${art(t.title)}${img(cover(t.title),"this.remove()")}</span><span class="t"><span class="ti">${esc(t.title)}</span><span class="cnt">${count(t)} comments</span></span></button>`};
+
+function signin(){return `<div class="box"><div class="logo">${snow} Polar</div><p class="mute">Political science conversations with the students on your campus.</p><form data-f="signin"><label for="em">Bucknell email</label><input id="em" type="email" placeholder="name@bucknell.edu" autocomplete="off" required><p>Your username: <b>${esc(S.hnd)}</b> <button type="button" class="link" data-a="shuffle">New username</button></p><p class="mute">Others only ever see your username, never your name or email.</p><div id="msg" class="msg" role="status"></div><button class="btn">Verify and join</button></form><p class="mute" style="font-size:.85rem;margin-top:16px">Demo: the live version emails a confirmation link. Here, any @bucknell.edu address works, and everything you do is saved only in this browser.</p></div>`}
+
+function board(){return `${ringCard()}<section class="hero"><h1>This week’s topics</h1><p class="mute">Week ${S.week} at Bucknell, ${wk(S.week)}. Topics reset every Monday.</p><div class="row"><button class="btn" data-a="new">Start a topic</button><button class="btn ghost" data-a="history">History</button></div></section>${S.topics.length?`<div class="grid">${S.topics.map(card).join('')}</div>`:'<p class="empty">No topics yet this week. Start the first one.</p>'}<footer class="demo"><p style="margin:0 0 6px"><b>Demo controls:</b> <button class="link" data-a="nextweek">Simulate the Monday reset</button>, <button class="link" data-a="mod">Moderator review</button>${modCount()?` (${modCount()} waiting)`:''}, <button class="link" data-a="resetdemo">Reset demo data</button>.</p><p style="margin:0 0 6px">This is a demo. Posts, replies, votes, and reports are saved only in this browser, so other visitors will not see them. Moderation and cover art are simulated. The live version uses Gemini through Firebase.</p></footer>`}
+
+const cm=(c,ro)=>{const mine=c.user===S.user.handle;
+ if(c.status==='removed')return '';
+ if(c.status==='rep')return `<div class="c rep"><b>${esc(c.user)}</b><p>Reported. Hidden while a moderator reviews it.</p></div>`;
+ if(c.status==='held')return mine?`<div class="c held"><b>${esc(c.user)}</b><p>${esc(c.text)}</p><small>Held for review. The AI check thinks this may read as a personal attack. Only you can see it until a moderator decides.</small></div>`:'';
+ return `<div class="c"><b>${esc(c.user)}</b><p>${esc(c.text)}</p><div class="acts">${ro?'':`<button class="link" data-a="reply" data-id="${c.id}">Reply</button>`}<button class="link" data-a="report" data-id="${c.id}">Report</button></div></div>`};
+
+function topic(){const t=find(S.cur),ro=t.week!=null;
+ return `<button class="link back" data-a="${ro?'history':'board'}">Back</button><div class="banner">${art(t.title)}${img(cover(t.title),"this.remove()")}</div><h1 class="th">${esc(t.title)}</h1><p class="mute">${count(t)} comments${ro?`, week ${t.week}, read-only`:''}</p>${thread(t,null,0,ro)}${ro?'':`<form data-f="comment">${S.reply?`<p class="rt">Replying to <b>${esc(t.comments.find(x=>x.id===S.reply).user)}</b> <button type="button" class="link" data-a="cancelreply">Cancel</button></p>`:''}<label for="ct" class="sr">Add a comment</label><textarea id="ct" rows="3" placeholder="${S.reply?'Write your reply.':'Add your view. Keep it respectful.'}" required></textarea><div id="msg" class="msg" role="status"></div><button class="btn">Post comment</button></form>`}`}
+
+function hist(){const ws=[...new Set(S.history.map(t=>t.week))].sort((a,b)=>b-a);
+ return `<button class="link back" data-a="board">Back to this week</button><h1>History</h1><p class="mute">Every retired topic, week by week. Read-only.</p>${ws.map(w=>`<h2 class="wk">Week ${w} <span class="cnt">${wk(w)}</span></h2><div class="grid">${S.history.filter(t=>t.week===w).map(card).join('')}</div>`).join('')||'<p class="empty">Nothing archived yet.</p>'}`}
+
+const newT=()=>`<button class="link back" data-a="board">Back</button><h1>Start a topic</h1><p class="mute">Ask one clear question.</p><form data-f="topic"><label for="nt" class="sr">Topic</label><input id="nt" maxlength="90" placeholder="What should Bucknell be talking about?" autocomplete="off" required><div id="sg">${sugg('')}</div><div id="msg" class="msg" role="status"></div><button class="btn">Post topic</button></form>`;
+
+const queue=()=>{const q=[];S.topics.concat(S.history).forEach(t=>t.comments.forEach(c=>{if(c.status==='held'||c.status==='rep')q.push([t,c])}));return q};
+const modCount=()=>queue().length;
+function modPage(){const q=queue();
+ return `<button class="link back" data-a="board">Back</button><h1>Moderator review</h1><p class="mute">Comments held by the AI check or reported by students wait here. Approve to show a comment to everyone, or remove it. In the live version only moderators can open this page.</p>${q.length?q.map(([t,c])=>`<div class="c ${c.status==='held'?'held':''}"><span class="cnt">${c.status==='held'?'Held by the AI check':'Reported by a student'}, in <button class="link" data-a="open" data-id="${t.id}">${esc(t.title)}</button></span><p><b>${esc(c.user)}</b></p><p>${esc(c.text)}</p><div class="row"><button class="btn" data-a="approve" data-t="${t.id}" data-id="${c.id}">Approve</button><button class="btn ghost" data-a="remove" data-t="${t.id}" data-id="${c.id}">Remove</button></div></div>`).join(''):'<p class="empty">Nothing to review. Held and reported comments will show up here.</p>'}`}
+function render(){
+ save();
+ if(!S.user){app.innerHTML=signin();return}
+ app.innerHTML=head()+`<main class="wrap">${({board,topic,history:hist,new:newT,debate,signup,vote:votePage,mod:modPage}[S.view]||board)()}</main>`}
+function go(v,cur,repl){if(v==='topic'&&!find(cur!=null?cur:S.cur))v='board';S.view=v;S.reply=null;resetD();if(cur!=null)S.cur=cur;
+ const h='#'+v+(v==='topic'?'-'+S.cur:'');if(location.hash!==h){if(repl)history.replaceState(null,'',h);else location.hash=h}render();window.scrollTo(0,0)}
+const VIEWS=['board','history','new','debate','vote','signup','mod','topic'];
+function route(){if(!S.user){render();return}
+ const m=location.hash.match(/^#([a-z]+)(?:-(\d+))?$/),v=m&&VIEWS.includes(m[1])?m[1]:'board',c=m&&m[2]?+m[2]:null;
+ if(v===S.view&&(v!=='topic'||c===S.cur)&&app.firstChild)return;go(v,c,true)}
+window.addEventListener('hashchange',route);
+
+document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a;
+ if(a==='shuffle'){S.hnd=gen();const m=$('#em')?$('#em').value:'';render();$('#em').value=m}
+ else if(a==='signout'){S.user=null;render()}
+ else if(a==='open')go('topic',+b.dataset.id);
+ else if(a==='tvote'){const c=S.cands.find(x=>x.id===b.dataset.k),p=S.cands.find(x=>x.id===S.myvote);if(p)p.pts--;if(p!==c){c.pts++;S.myvote=c.id}else S.myvote=null;render()}
+ else if(a==='dvote'){D[b.dataset.k]=b.dataset.v;if(b.dataset.k==='post')D.phase='done';render()}
+ else if(a==='dstart'){D.phase='live';D.turn=0;D.t0=Date.now();D.timer=setInterval(dtick,150);render()}
+ else if(a==='dagain')go('debate');
+ else if(a==='reply'){const d=$('#ct').value;S.reply=+b.dataset.id;render();const x=$('#ct');x.value=d;x.focus()}
+ else if(a==='cancelreply'){const d=$('#ct').value;S.reply=null;render();$('#ct').value=d}
+ else if(a==='report'){const c=find(S.cur).comments.find(x=>x.id==b.dataset.id);c.status='rep';render();toast('Thanks. Reported for review.')}
+ else if(a==='approve'||a==='remove'){const t=find(b.dataset.t),c=t&&t.comments.find(x=>x.id==b.dataset.id);if(c){c.status=a==='approve'?'ok':'removed';render();toast(a==='approve'?'Approved. Everyone can see it now.':'Removed.')}}
+ else if(a==='resetdemo'){if(b.dataset.sure){try{localStorage.removeItem(KEY)}catch(e){}location.hash='';location.reload()}else{b.dataset.sure='1';b.textContent='Click again to erase everything';}}
+ else if(a==='nextweek'){S.topics.forEach(t=>t.week=S.week);S.history.push(...S.topics);S.topics=[];S.week++;go('board');toast('New week. Last week moved to History.')}
+ else go(a)});
+
+document.addEventListener('input',e=>{if(e.target.id==='nt')$('#sg').innerHTML=sugg(e.target.value)});
+
+document.addEventListener('submit',e=>{e.preventDefault();const f=e.target.dataset.f,msg=$('#msg');
+ if(f==='signin'){const em=$('#em').value.trim();
+  if(!/^[^@\s]+@bucknell\.edu$/i.test(em)){msg.textContent='Use your @bucknell.edu address. Polar is open to Bucknell only for now.';return}
+  S.user={handle:S.hnd};go('board');toast('Verified. Welcome, '+S.hnd+'.')}
+ if(f==='comment'){const v=$('#ct').value.trim(),m=mod(v);if(!v){msg.textContent='Write something first.';return}
+  if(m==='block'){msg.textContent='Not posted. Polar blocks profanity. Reword it and try again.';return}
+  find(S.cur).comments.push({id:id++,user:S.user.handle,text:v,status:m==='hold'?'held':'ok',parent:S.reply||null});S.reply=null;render();
+  toast(m==='hold'?'Held for review by the AI check':'Comment posted')}
+ if(f==='propose'){const v=$('#pr').value.trim();if(!v){msg.textContent='Write a resolution first.';return}if(mod(v)!=='ok'){msg.textContent='Rephrase your topic. It was flagged by the language check.';return}S.cands.push({id:'c'+Date.now(),res:v,pts:0});render();toast('Added to the ballot')}
+ if(f==='signup'){const v=lead().res;
+  
+  S.signed={res:v,side:document.querySelector('input[name=sd]:checked').value};render();toast("You're in the draw")}
+ if(f==='topic'){const v=$('#nt').value.trim();if(!v){msg.textContent='Write a topic first.';return}
+  if(mod(v)!=='ok'){msg.textContent='Rephrase your topic. It was flagged by the language check.';return}
+  S.topics.unshift(T(v,[]));if(S.view==='new')go('board');else if(S.view!=='debate')render();else save();toast('Topic posted')}
+});
+window.addEventListener('storage',e=>{if(e.key===KEY)location.reload()});
+try{route()}catch(e){try{localStorage.removeItem(KEY)}catch(_){}location.reload()}
+</script>
+</body>
+</html>
